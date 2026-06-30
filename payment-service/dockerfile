@@ -14,7 +14,7 @@ ENV DB_HOST=localhost
 ENV DB_PORT=5432
 ENV DB_NAME=credpay
 
-RUN adduser --disabled-password --gecos "" appuser
+RUN useradd --disabled-password appuser
 USER appuser
 
 EXPOSE 8000

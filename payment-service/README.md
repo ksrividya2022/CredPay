@@ -45,7 +45,7 @@ Defaults: `postgres/postgres` @ `localhost:5432/credpay`. Override via env vars:
 
 ```powershell
 $env:DB_USERNAME = "postgres"
-$env:DB_PASSWORD = "yourpassword"
+$env:DB_PASSWORD = "postgres1234"
 ```
 
 ## Run locally
