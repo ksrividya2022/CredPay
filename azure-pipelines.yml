@@ -9,16 +9,17 @@ trigger:
 pool:
    vmImage: ubuntu-latest
 
-steps:
-- checkout: self
-- script: 
-    echo 'Repository Folder Structure'
-    pwd
-    ls-la
-# - script: echo Hello, world!
-#   displayName: 'Run a one-line script'
-
-# - script: |
-#     echo Add other tasks to build, test, and deploy your project.
-#     echo See https://aka.ms/yaml
-#   displayName: 'Run a multi-line script'
+variables: 
+    acrserviceconnection: cred-acr
+    tag: '(Build.BuildId)'
+    forntendrepo: 'credpay/frontend'
+    paymentrepo: 'credpay/payment'
+    userrepo: 'credpay/user'
+stages:
+  - stage: DockerBuild
+    displayName: Build Docker Images
+    jobs:
+      - job: BuildAndPublishImages
+        displayName: Build Docker Images
+        steps:
+          - checkout: self
